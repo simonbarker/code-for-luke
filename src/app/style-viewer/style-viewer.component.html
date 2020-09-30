@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Style Name</th>
+      <th scope="col">Style Colour Code</th>
+      <th scope="col">Colour name</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let style of styles">
+      <th scope="row">{{style.styleName}}</th>
+      <td>{{style.colours[0].styleColourCode}}</td>
+      <td>{{style.colours[0].name}}</td>
+      <td>£{{style.colours[0].pricing.price}}</td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="firstSearch" class="text-center">
+  Please enter a search term above
+</p>
+<p *ngIf="!firstSearch && !styles.length" class="text-center">
+  Nothing found for that search
+</p>
