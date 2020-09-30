@@ -1,27 +1,25 @@
-# BravissimoWebApiTest
+# Testing some code for Luke
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
+Candidate answers:
 
-## Development server
+* How long did you spend on this exercise?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+60 minutes on the nose, but I was shifting as the npm installs over the Brav wifi took an age.
 
-## Code scaffolding
+* What more would you do if you spent more time on it? (if your time was limited, this is an opportunity to explain your thinking and approach further)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Make the nav bar and seatch it's own component, use an subject between the search and styleViewer component rather than input params.
+Better error handling.
+Add a loading spinner
 
-## Build
+* Explain why you took the approach that you did? e.g. why did you pick a particular library (or none at all)?
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+I'm very familiar with Angular and once you get going it's fast to develop in and the framework structure instills a level of architectural thinking from the start. However I spent a lot of time in setup than compressed the real meat of the work.
 
-## Running unit tests
+* Are there any known issues you'd like to flag?
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Error detection isn't thoroughly tested, have also only tested for `32gg`, `asdfasdf` and ` `. 
 
-## Running end-to-end tests
+* How would you improve the API that you used?
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Add a `sortBy` and `limit` option, it's also a bit slow.
