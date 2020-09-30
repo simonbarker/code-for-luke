@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { StyleSearchService } from './services/style-search.service';
 
 @Component({
@@ -6,19 +7,20 @@ import { StyleSearchService } from './services/style-search.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   title = 'bravissimo-web-api-test';
   searchStyle = '';
   styles: any = [];
   loading = false;
   firstSearch = true;
+  styleSearchSubscription: Subscription;
 
   constructor(private styleSearchService: StyleSearchService) { }
 
   onSearch() {
     this.loading = true;
 
-    this.styleSearchService.getStylesForSearch(this.searchStyle).subscribe(data => {
+    this.styleSearchSubscription = this.styleSearchService.getStylesForSearch(this.searchStyle).subscribe(data => {
       this.firstSearch = false;
       this.styles = data;
       this.searchStyle = '';
@@ -27,7 +29,11 @@ export class AppComponent {
       console.log(err);
       this.firstSearch = false;
       this.loading = false;
-    })
+    });
+  }
+
+  ngOnDestroy() {
+    this.styleSearchSubscription.unsubscribe();
   }
 
 }
